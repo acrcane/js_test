@@ -127,21 +127,42 @@
 //то вивести рядок "Вітаю!"
 //в іншому випадку виводити рядок "Невірний пароль!"
 
-const login = prompt('Введіть логін');
-console.log(login);
-if (login === "Адмін") {
-    const password = prompt('Введіть пароль')
-    if (password === "Я головний") {
-        console.log('Вітаю')
-    }
-    else {
-        console.log('Невірний пароль!')
-    }
-} 
-else if (login === "" || login === null) {
-console.log('Скасовано')
-}
-else {
-    console.log('Я вас не знаю')
-}
+// const login = prompt('Введіть логін');
+// console.log(login);
+// if (login === "Адмін") {
+//     const password = prompt('Введіть пароль')
+//     if (password === "Я головний") {
+//         console.log('Вітаю')
+//     }
+//     else {
+//         console.log('Невірний пароль!')
+//     }
+// } 
+// else if (login === "" || login === null) {
+// console.log('Скасовано')
+// }
+// else {
+//     console.log('Я вас не знаю')
+// }
 
+// Створіть масив styles з елементами 'Джаз' і 'Блюз'
+//Додайте в кінець 'Рок-н-ролл'
+//Заменіть значення 'Блюз' на 'Класика'
+//Видаліть перший елемент масива та виведіть його в консоль
+// Додайте 'Реп' та 'Реггі' на початок списку.
+
+const styles =['Джаз', 'Блюз'];
+styles.push('Рок-н-ролл');
+
+
+// styles.splice(1, 1, 'Класика');
+const index = styles.indexOf('Блюз');
+styles.splice(index, 1, 'Класика')
+console.log(styles);
+// styles[index] = 'Блюз'
+// console.log(styles);
+// styles.shift()
+console.log(styles.shift());
+console.log(styles);
+styles.unshift('Реп', 'Реггі');
+console.log(styles);

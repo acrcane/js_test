@@ -43,7 +43,7 @@
  //Напишіть программу, яка отримує від користувача
 //число (кількість хвилин) и виводить у консоль
 //рядок у форматі годин та хвилин
-// 
+//
 // 70 === 01:10
 
 // let number = prompt('Enter number:');
@@ -88,7 +88,7 @@
 
 // function getSeason (num) {
 //     let result = '';
-//     switch (num) { 
+//     switch (num) {
 //             case 1:
 //               result = 'зима';
 //               break;
@@ -137,7 +137,7 @@
 //     else {
 //         console.log('Невірний пароль!')
 //     }
-// } 
+// }
 // else if (login === "" || login === null) {
 // console.log('Скасовано')
 // }
@@ -155,14 +155,30 @@ const styles =['Джаз', 'Блюз'];
 styles.push('Рок-н-ролл');
 
 
-// styles.splice(1, 1, 'Класика');
-const index = styles.indexOf('Блюз');
-styles.splice(index, 1, 'Класика')
-console.log(styles);
-// styles[index] = 'Блюз'
+// // styles.splice(1, 1, 'Класика');
+// const index = styles.indexOf('Блюз');
+// styles.splice(index, 1, 'Класика')
 // console.log(styles);
-// styles.shift()
-console.log(styles.shift());
-console.log(styles);
+// // styles[index] = 'Блюз'
+// // console.log(styles);
+// // styles.shift()
+// console.log(styles.shift());
+// console.log(styles);
 styles.unshift('Реп', 'Реггі');
-console.log(styles);
+// console.log(styles);
+
+
+// Напишіть функцію logItems (array), яка приймає
+// масив і використовує цикл for, який для кожного елемента
+//буде виводити повідомлення у форматі:
+//<номер елемента> - <значення елемента>
+//Нумерація має починатись з 1
+
+function logItems(array) {
+  for (let i = 0; i < array.length; i += 1) { 
+    // console.log(i, array[i]);
+  console.log(`Номер елемента - ${i+1}, значення елемента - ${array[i]}`);
+  }
+}
+
+logItems(styles);

@@ -143,19 +143,30 @@
 //     return this.transactions;
 //    },
 
-//   //Метод повертає поточний баланс
-//   getBalance() {  },
+  //Метод повертає поточний баланс
+  getBalance() {
+    console.log(`На вашому рахунку ${this.balance} коштів`)
+    },
 
-//   //Метод шукає і повертає об'єкт транзакціи по id
-//   getTransactionDetails(id) {  },
+  //Метод шукає і повертає об'єкт транзакціи по id
+  getTransactionDetails(id) { 
+    const tr = this.transactions.find(tr => tr.id === id)
+    if (!tr) {
+      return console.log(`Транзакція не знайдена`)
+    } else {
+      return tr
+    }
+    
+   },
 
-// //Метод повертає кількіств коштів вказаного типу
-//   //транзакціи зі всієї історії транзакцій
-//   getTransactionType(type) {  },
-// };
-// console.log(account.deposit(100));
-// console.log(account.withdraw(200));
-
+//Метод повертає кількіств коштів вказаного типу
+  //транзакціи зі всієї історії транзакцій
+  getTransactionType(type) {  },
+};
+console.log(account.deposit(100));
+console.log(account.withdraw(20));
+account.getBalance()
+console.log(account.getTransactionDetails(0))
 
 //1. Напишіть дві функції
 // letMeSeeYourName(callback) - питає ім'я користувача

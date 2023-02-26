@@ -144,29 +144,29 @@
 //    },
 
   //Метод повертає поточний баланс
-  getBalance() {
-    console.log(`На вашому рахунку ${this.balance} коштів`)
-    },
+//   getBalance() {
+//     console.log(`На вашому рахунку ${this.balance} коштів`)
+//     },
 
-  //Метод шукає і повертає об'єкт транзакціи по id
-  getTransactionDetails(id) { 
-    const tr = this.transactions.find(tr => tr.id === id)
-    if (!tr) {
-      return console.log(`Транзакція не знайдена`)
-    } else {
-      return tr
-    }
+//   //Метод шукає і повертає об'єкт транзакціи по id
+//   getTransactionDetails(id) { 
+//     const tr = this.transactions.find(tr => tr.id === id)
+//     if (!tr) {
+//       return console.log(`Транзакція не знайдена`)
+//     } else {
+//       return tr
+//     }
     
-   },
+//    },
 
-//Метод повертає кількіств коштів вказаного типу
-  //транзакціи зі всієї історії транзакцій
-  getTransactionType(type) {  },
-};
-console.log(account.deposit(100));
-console.log(account.withdraw(20));
-account.getBalance()
-console.log(account.getTransactionDetails(0))
+// //Метод повертає кількіств коштів вказаного типу
+//   //транзакціи зі всієї історії транзакцій
+//   getTransactionType(type) {  },
+// };
+// console.log(account.deposit(100));
+// console.log(account.withdraw(20));
+// account.getBalance()
+// console.log(account.getTransactionDetails(0))
 
 //1. Напишіть дві функції
 // letMeSeeYourName(callback) - питає ім'я користувача
@@ -176,16 +176,39 @@ console.log(account.getTransactionDetails(0))
 //Реалізуй перевірку, що prompt не пустий
 // якщо пустий - додай дефолтне значення
 
-function letMeSeeYourName(callback) { 
-  let userName = prompt('Введіть імя');
-  if (!userName) { 
-    userName = 'Шановний';
+// function letMeSeeYourName(callback) { 
+//   let userName = prompt('Введіть імя');
+//   if (!userName) { 
+//     userName = 'Шановний';
+//   }
+//   callback(userName);
+// }
+
+// function greet(name) { 
+//   console.log(`Привіт, ${name}`);
+// }
+
+// letMeSeeYourName(greet);
+
+// 2. Напишіть дві функції
+//makeProduct(name, price, callback) - приймає
+//ім'я та ціну товара, а також callback.
+//Функція створює об'єкт товара, додавая йому унікальний
+//ідентифікатор у властивість id та викликає callback
+//передавая йому створений об'єкт.
+//showProduct(product) - коллбек приймає об'єкт
+//продукта і логірує його в консоль
+
+function makeProduct(name, price, callback){
+  const product = {
+    name,
+    price,
+    id: Math.random() 
   }
-  callback(userName);
+  callback(product)
+}
+function showProduct(product){
+  console.log(product);
 }
 
-function greet(name) { 
-  console.log(`Привіт, ${name}`);
-}
-
-letMeSeeYourName(greet);
+makeProduct('productName', 1111, showProduct);

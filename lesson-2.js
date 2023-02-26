@@ -92,56 +92,56 @@
 
 //Типів транзакцій всього два.
 //Можна покласти або зняти гроші з рахунка
-const Transaction = {
-  DEPOSIT: "deposit",
-  WITHDRAW: "withdraw",
-};
+// const Transaction = {
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
 
-//Кожна транзакція це об'єкт з властивостями id, type, amount
-const account = {
-  //поточний баланс рахунка
-  balance: 0,
+// //Кожна транзакція це об'єкт з властивостями id, type, amount
+// const account = {
+//   //поточний баланс рахунка
+//   balance: 0,
 
-  //Історія транзакцій
-  transactions: [],
+//   //Історія транзакцій
+//   transactions: [],
 
-  //Метод створює і повертає об'єкт транзакцій
-  //Приймає сумму і тип транзакцій
-  createTransaction(type, amount) {
-    return {
-      type,
-      amount,
-    };
-  },
+//   //Метод створює і повертає об'єкт транзакцій
+//   //Приймає сумму і тип транзакцій
+//   createTransaction(type, amount) {
+//     return {
+//       type,
+//       amount,
+//     };
+//   },
 
-  //Метод відповідає за додавання сумми к балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає його в історію транзакцій
-  deposit(amount) { 
-    this.balance += amount;
-   const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
-   this.transactions.push({...transaction, id: Math.random().toFixed(3)});
-  //  return this.transactions;
-   },
+//   //Метод відповідає за додавання сумми к балансу.
+//   //Приймає сумму транзакціи.
+//   //Визиває createTransaction для створення об'єкта транзакціи
+//   //після чого додає його в історію транзакцій
+//   deposit(amount) {
+//     this.balance += amount;
+//    const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
+//    this.transactions.push({...transaction, id: Math.random().toFixed(3)});
+//   //  return this.transactions;
+//    },
 
 
-  //Метод відповідає за зняття сумми з балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає йогого в історю транзакцій
-  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
-  //що недостатньо коштів на рахунку
-  withdraw(amount) { 
-if (amount > this.balance){
-  return console.log(`Недостатньо коштів на рахунку`);
-}
+//   //Метод відповідає за зняття сумми з балансу.
+//   //Приймає сумму транзакціи.
+//   //Визиває createTransaction для створення об'єкта транзакціи
+//   //після чого додає йогого в історю транзакцій
+//   //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
+//   //що недостатньо коштів на рахунку
+//   withdraw(amount) {
+// if (amount > this.balance){
+//   return console.log(`Недостатньо коштів на рахунку`);
+// }
 
-    this.balance -= amount;
-    const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
-    this.transactions.push({...transaction, id:1});
-    return this.transactions;
-   },
+//     this.balance -= amount;
+//     const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
+//     this.transactions.push({...transaction, id: Math.random().toFixed(3)});
+//     return this.transactions;
+//    },
 
   //Метод повертає поточний баланс
   getBalance() {
@@ -167,3 +167,25 @@ console.log(account.deposit(100));
 console.log(account.withdraw(20));
 account.getBalance()
 console.log(account.getTransactionDetails(0))
+
+//1. Напишіть дві функції
+// letMeSeeYourName(callback) - питає ім'я користувача
+//через prompt и викликає callback функцію
+//greet(name) - коллбек, якій приймає ім'я та логірує в консоль
+//рядок "Привіт, <name>"
+//Реалізуй перевірку, що prompt не пустий
+// якщо пустий - додай дефолтне значення
+
+function letMeSeeYourName(callback) { 
+  let userName = prompt('Введіть імя');
+  if (!userName) { 
+    userName = 'Шановний';
+  }
+  callback(userName);
+}
+
+function greet(name) { 
+  console.log(`Привіт, ${name}`);
+}
+
+letMeSeeYourName(greet);

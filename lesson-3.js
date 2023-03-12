@@ -105,3 +105,35 @@
 // console.log(ivan.getClientData)
 // ivan.changeEmail = "ivan2@ukr.net"
 // console.log(ivan.getClientData.email)
+
+//3. Напиши класс Notes який управляє коллекцієй нотаток у
+//властивості items.
+//Нотатка це  об'єкт з властивостями text, priority
+//Додай класу статичну властивість Priopity,
+//в якій буде зберігатись об'єкт з пріорітетами ("hight", "middle", "low").
+//Додай методи addNote(note), removeNote(text)
+//updatePriority(text, newPriority)
+
+class Notes {
+    static Priopity = {
+        HIGHT: "hight",
+        MIDDLE: "middle",
+        LOW: "low"
+    }
+    constructor(){
+        this.items = [];
+    }
+
+    addNote(note){
+        this.items.push(note)
+    }
+
+    removeNote(text){
+        const myIndex = this.items.findIndex(item => item.text === text)
+        if(myIndex === -1){
+            console.log('NOT FIND ELEMENT');
+        } else {
+        this.items.splice(myIndex, 1)
+        }
+    }
+}

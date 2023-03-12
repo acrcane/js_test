@@ -68,7 +68,7 @@
 //       this.age = age;
 //       this.numbersOfPost = numbersOfPost;
 //     }
-//     getInfo() { 
+//     getInfo() {
 //         return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`;
 //     }
 // }
@@ -114,26 +114,89 @@
 //Додай методи addNote(note), removeNote(text)
 //updatePriority(text, newPriority)
 
-class Notes {
-    static Priopity = {
-        HIGHT: "hight",
-        MIDDLE: "middle",
-        LOW: "low"
-    }
-    constructor(){
-        this.items = [];
-    }
+// class Notes {
+//   static Priopity = {
+//     HIGHT: 'hight',
+//     MIDDLE: 'middle',
+//     LOW: 'low',
+//   };
+//   constructor() {
+//     this.items = [];
+//   }
 
-    addNote(note){
-        this.items.push(note)
-    }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
 
-    removeNote(text){
-        const myIndex = this.items.findIndex(item => item.text === text)
-        if(myIndex === -1){
-            console.log('NOT FIND ELEMENT');
-        } else {
-        this.items.splice(myIndex, 1)
-        }
+//   removeNote(text) {
+//     const myIndex = this.items.findIndex((item) => item.text === text);
+//     if (myIndex === -1) {
+//       console.log('NOT FIND ELEMENT');
+//     } else {
+//       //     this.items.splice(myIndex, 1)
+//       this.items = this.items.filter((item) => item.text !== text);
+//     }
+//   }
+
+//     updatePriority(text, newPriority) {
+//      const myIndex = this.items.findIndex((item) => item.text === text);
+//      if (myIndex === -1) {
+//        console.log('NOT FIND ELEMENT');
+//      } else {
+//          this.items[myIndex].priority = newPriority;
+//      }
+//     }
+// }
+
+// const notes1 = new Notes();
+// notes1.addNote({ text: 'Нотатка 1', priority: Notes.Priopity.HIGHT });
+// notes1.addNote({ text: 'Нотатка 2', priority: Notes.Priopity.LOW });
+// console.log(notes1);
+
+// notes1.removeNote('Нотатка 3');
+// console.log(notes1);
+
+// notes1.updatePriority('Нотатка 1', Notes.Priopity.MIDDLE);
+// console.table(notes1.items);
+
+
+// 4. Створити клас Worker, у якого є властивості name, age, salary.
+//У класу Worker є метод getSalary, який повертає повідомлення
+//"Worker <name> has salary <salary> dollars"
+//Створити клас TopLevelWorker, у якого є властивість position
+//і який успадковує клас Worker, додаючи метод getPosition
+
+class Worker {
+  constructor(obj) {
+    const { name, age, salary } = obj;
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+  }
+
+    getSalary() { 
+        return `Worker ${this.name} has salary ${this.salary} dollars`;
     }
 }
+
+const ivan = new Worker({ name: 'ivan', age: 28, salary: 1000 });
+console.log(ivan);
+
+console.log(ivan.getSalary());
+
+class TopLevelWorker extends Worker {
+  constructor(obj, position) {
+    super(obj);
+    this.position = position;
+  }
+
+    getPosition() { 
+        return `Worker ${this.name} works as ${this.position}`;
+    }
+}
+
+const petroProperties = { name: 'Petro', age: 32, salary: 2000 };
+const petro = new TopLevelWorker(petroProperties, 'Developer');
+console.log(petro);
+console.log(petro.getPosition());
+console.log(petro.getSalary());

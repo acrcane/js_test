@@ -92,78 +92,33 @@
 
 //Типів транзакцій всього два.
 //Можна покласти або зняти гроші з рахунка
-const Transaction = {
-  DEPOSIT: "deposit",
-  WITHDRAW: "withdraw",
-};
-
-//Кожна транзакція це об'єкт з властивостями id, type, amount
-const account = {
-  //поточний баланс рахунка
-  balance: 0,
-
-  //Історія транзакцій
-  transactions: [],
-
-  //Метод створює і повертає об'єкт транзакцій
-  //Приймає сумму і тип транзакцій
-  createTransaction(type, amount) {
-    return {
-      type,
-      amount,
-    };
+// 
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
   },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+// Change code below this line
 
-  //Метод відповідає за додавання сумми к балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає його в історію транзакцій
-  deposit(amount) { 
-    this.balance += amount;
-   const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
-   this.transactions.push({...transaction, id: Math.random().toFixed(3)});
-  //  return this.transactions;
-   },
-
-
-  //Метод відповідає за зняття сумми з балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає йогого в історю транзакцій
-  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
-  //що недостатньо коштів на рахунку
-  withdraw(amount) { 
-if (amount > this.balance){
-  return console.log(`Недостатньо коштів на рахунку`);
-}
-
-    this.balance -= amount;
-    const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
-    this.transactions.push({...transaction, id:1});
-    return this.transactions;
-   },
-
-  //Метод повертає поточний баланс
-  getBalance() {
-    console.log(`На вашому рахунку ${this.balance} коштів`)
-    },
-
-  //Метод шукає і повертає об'єкт транзакціи по id
-  getTransactionDetails(id) { 
-    const tr = this.transactions.find(tr => tr.id === id)
-    if (!tr) {
-      return console.log(`Транзакція не знайдена`)
-    } else {
-      return tr
-    }
-    
-   },
-
-//Метод повертає кількіств коштів вказаного типу
-  //транзакціи зі всієї історії транзакцій
-  getTransactionType(type) {  },
-};
-console.log(account.deposit(100));
-console.log(account.withdraw(20));
-account.getBalance()
-console.log(account.getTransactionDetails(0))
+const names = books
+  .filter(book => book.rating > MIN_BOOK_RATING)
+  .map(book => book.author)

@@ -102,16 +102,58 @@
 //  повідомлення з назвою продукту та його ціною.
 //  "Ви вибрали <product> за <price>".
 
-const tableEl = document.querySelector("#productTable");
-const divEl = document.querySelector("#productDetails");
+// const tableEl = document.querySelector("#productTable");
+// const divEl = document.querySelector("#productDetails");
 
-const showMessage = (event) => {
-  if (event.target.nodeName !== "TD") return;
-  const parent = event.target.parentNode;
+// const showMessage = (event) => {
+//   if (event.target.nodeName !== "TD") return;
+//   const parent = event.target.parentNode;
 
-  const product = parent.firstElementChild.textContent;
-  const price = parent.lastElementChild.textContent;
-  divEl.textContent = `Ви вибрали ${product} за ${price}`;
-};
+//   const product = parent.firstElementChild.textContent;
+//   const price = parent.lastElementChild.textContent;
+//   divEl.textContent = `Ви вибрали ${product} за ${price}`;
+// };
 
-tableEl.addEventListener("click", showMessage);
+// tableEl.addEventListener("click", showMessage);
+
+/*
+Завдання 8
+При натисканні на кожну з кнопок підсумовуються значення з data-атрибутів.
+За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
+інформацією про те, яка кнопка була натиснута скільки разів.
+*/
+
+// const divEl = document.querySelector('.statList');
+// const resultBtnEl = document.querySelector('#resultButton');
+// const resultMessageEl = document.querySelector('#resultSection');
+
+// divEl.addEventListener('click', countTotal);
+// resultBtnEl.addEventListener('click', resultInfo);
+
+// let dataTotal = 0;
+// resultMessageEl.innerHTML = '';
+// let statistic = {};
+
+// function countTotal(event) {
+//   if (event.target.nodeName !== 'BUTTON') return;
+//   const dataValue = Number(event.target.dataset.number);
+
+//   const key = event.target.textContent;
+//   if (statistic[key]) {
+//     statistic[key] += 1;
+//   } else {
+//     statistic[key] = 1;
+//   }
+//   dataTotal += dataValue;
+// }
+
+// function resultInfo() {
+//   let message = '';
+//   for (const element in statistic) { 
+//     message += `Кнопка ${element} натиснута ${statistic[element]} разів. `;
+//     }
+//   const total = `Загальна кількість: ${dataTotal}`;
+//   resultMessageEl.innerHTML = `${message}<br>${total}`;
+//   dataTotal = 0;
+//   statistic = {};
+// }

@@ -79,3 +79,24 @@
 // divEl.style.top = `${randomither(100)}%`;
 // divEl.style.left = `${randomither(100)}%`;
 // }
+
+// Завдання 3
+// Кнопка "Приховати" ховає текст і замінює назву кнопки на
+// "Розкрити", при повторному натисканні текст знову стає доступним
+// і кнопка набуває початкового вигляду.
+// */
+
+
+const myInput = document.querySelector("#passwordInput");
+const myBtn = document.querySelector("#passwordButton");
+myBtn.addEventListener('click', hideFunc)
+
+function hideFunc(){
+    if(myBtn.textContent === 'Розкрити'){
+        myInput.style.color = 'inherit'
+        myBtn.textContent = 'Приховати'
+    } else {
+        myInput.style.color = 'transparent'
+        myBtn.textContent = 'Розкрити'
+    }
+}

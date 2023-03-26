@@ -43,8 +43,6 @@
 //   }
 // }
 
-
-
 // 2. Створити невелику гру
 // Спочатку на екрані з'являється якась фігура рандомного коліру в рандомному місті
 // Натискаючі на фігуру, вона змінює свою форму, колір, місце розташування
@@ -71,7 +69,6 @@
 
 // divEl.addEventListener('click', createDiv);
 
-
 // function createDiv() {
 //   divEl.style.cssText = forms[randomither(forms.length)];
 // divEl.style.backgroundColor = getRandomHexColor();
@@ -86,17 +83,35 @@
 // і кнопка набуває початкового вигляду.
 // */
 
+// const myInput = document.querySelector("#passwordInput");
+// const myBtn = document.querySelector("#passwordButton");
+// myBtn.addEventListener('click', hideFunc)
 
-const myInput = document.querySelector("#passwordInput");
-const myBtn = document.querySelector("#passwordButton");
-myBtn.addEventListener('click', hideFunc)
+// function hideFunc(){
+//     if(myBtn.textContent === 'Розкрити'){
+//         myInput.style.color = 'inherit'
+//         myBtn.textContent = 'Приховати'
+//     } else {
+//         myInput.style.color = 'transparent'
+//         myBtn.textContent = 'Розкрити'
+//     }
+// }
 
-function hideFunc(){
-    if(myBtn.textContent === 'Розкрити'){
-        myInput.style.color = 'inherit'
-        myBtn.textContent = 'Приховати'
-    } else {
-        myInput.style.color = 'transparent'
-        myBtn.textContent = 'Розкрити'
-    }
-}
+// Завдання 16
+//  При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+const tableEl = document.querySelector("#productTable");
+const divEl = document.querySelector("#productDetails");
+
+const showMessage = (event) => {
+  if (event.target.nodeName !== "TD") return;
+  const parent = event.target.parentNode;
+
+  const product = parent.firstElementChild.textContent;
+  const price = parent.lastElementChild.textContent;
+  divEl.textContent = `Ви вибрали ${product} за ${price}`;
+};
+
+tableEl.addEventListener("click", showMessage);

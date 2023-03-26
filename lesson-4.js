@@ -157,3 +157,27 @@
 //   dataTotal = 0;
 //   statistic = {};
 // }
+
+/*
+Завдання 7
+При затисканні миші на колі коло повинно слідувати за курсором.
+При відпусканні мишки воно стає в початкове положення.
+*/
+
+const myDiv = document.querySelector('.innerCircle');
+
+myDiv.addEventListener('mousedown', mouseDownFunc);
+
+function mouseDownFunc(){
+    myDiv.style.position = 'absolute';
+    myDiv.addEventListener('mousemove', mouseMove)
+    myDiv.addEventListener('mouseup', () => {
+        myDiv.removeEventListener('mousemove', mouseMove)
+        myDiv.style.position = 'static'
+    })
+    function mouseMove({pageX, pageY}){
+        console.log(pageX, pageY)
+        myDiv.style.top = pageY + 'px'
+        myDiv.style.left = pageX + 'px'
+    }
+}
